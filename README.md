@@ -1,19 +1,18 @@
-# Gerenciador de Memória
+# Gerenciador de Memória do Windows em Python.
 # Feito por Alexsandro Narducci e Lucas Cândido Belletti
 
-Projeto acadêmico em Python que cria um dashboard inspirado no Gerenciador de Tarefas do Windows, com foco no monitoramento do uso de memória RAM da máquina.
+Projeto acadêmico em Python para o trabalho final da disciplina de Sistemas Operacionais, com o professor [Danton Cavalcanti Franco Junior](https://github.com/dantonjr).
+Consiste em um dashboard inspirado no Gerenciador de Tarefas do Windows, com foco no monitoramento do uso de memória RAM da máquina.
 
-O sistema mostra informações gerais da memória, lista processos em execução, agrupa processos por aplicativo/executável e exibe essas informações em tabelas e gráficos.
-
-O ponto principal é que o projeto coleta informações do sistema com a biblioteca embutida do Python `ctypes`, que utiliza funções da winAPI em C e obter os dados da memória.
+O sistema mostra informações gerais da memória, lista processos em execução com a quantidade de memória usada, agrupa por aplicativo/executável e exibe essas informações em tabelas e gráficos.
 
 ## Descrição geral
 
-O Gerenciador de Memória é um painel feito com Streamlit que permite acompanhar o uso de memória RAM do Windows em tempo quase real.
+O projeto é uma versão simplificada do Gerenciador de Tarefas, mas com foco específico na memória do sistema.
+As informações do sistema são coletadas com a biblioteca embutida do Python `ctypes`, que utiliza funções da winAPI em C para obter os dados da memória.
+O foco maior foi entender essa coleta de informações da memória RAM e processos no Windows sem depender de bibliotecas de alto nível como o `psutil`, que simplificaria muito o projeto.
 
-Basicamente é uma versão simplificada do Gerenciador de Tarefas, mas com foco didático, já que o ponto principal é que o projeto coleta informações do sistema com a biblioteca embutida do Python `ctypes`, que utiliza funções da winAPI em C para obter os dados da memória.
-
-O foco maior foi entender a coleta de informações de memória RAM e processos no Windows sem depender de bibliotecas de alto nível como o `psutil`, que simplificaria muito o projeto.
+O dashboard é um painel feito com `Streamlit`, as tabelas utilizam a biblioteca `pandas` e os gráficos foram feitos através de `plotly`
 
 ## Objetivos do projeto
 * demonstrar o uso de chamadas do sistema operacional com `ctypes` e WinAPI.
@@ -55,11 +54,10 @@ python -m streamlit run gerenciador_memoria.py
 ```
 ## Coleta de dados do sistema operacional
 
-O projeto não usa `psutil`, justamente para evitar uma biblioteca de altonível que já faz toda a coleta. Em vez disso, os dados são acessados diretamente pela WinAPI usando `ctypes`.
-
+Como dito anteriormente, os dados são acessados diretamente pela WinAPI usando `ctypes`.
 O `ctypes` é uma biblioteca do Python que permite carregar DLLs do Windows e chamar funções nativas do sistema operacional. Neste projeto, são usadas principalmente funções das bibliotecas `kernel32` e `psapi`.
 
-### Coleta da memória geral
+### Coleta de informações gerais da memória do sistema
 
 Para coletar informações gerais da memória RAM, o projeto usa a estrutura `MEMORYSTATUSEX`.
 Essa estrutura representa o formato esperado pela função `GlobalMemoryStatusEx`, que é uma função da WinAPI usada para obter dados de memória do sistema.

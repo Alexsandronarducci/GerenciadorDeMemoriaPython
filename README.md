@@ -2,9 +2,10 @@
 # Feito por Alexsandro Narducci e Lucas Cândido Belletti
 
 Projeto acadêmico em Python para o trabalho final da disciplina de Sistemas Operacionais, com o professor [Danton Cavalcanti Franco Junior](https://github.com/dantonjr).
-Consiste em um dashboard inspirado no Gerenciador de Tarefas do Windows, com foco no monitoramento do uso de memória RAM da máquina.
+Consiste em um dashboard inspirado no Gerenciador de Tarefas do Windows, com foco no monitoramento em tempo real do uso de memória RAM da máquina.
 
-O sistema mostra informações gerais da memória, lista processos em execução com a quantidade de memória usada, agrupa por aplicativo/executável e exibe essas informações em tabelas e gráficos.
+O sistema mostra informações gerais da memória, lista processos em execução com a quantidade de memória usada, agrupa por aplicativo/executável e exibe essas informações em tabelas e gráficos históricos.
+Esses gráficos e tabelas reagem dinamicamente à abertura e encerramento de processos/programas, semelhante ao Gerenciador de Tarefas do Windows.
 
 ## Descrição geral
 
